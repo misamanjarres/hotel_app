@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hotel Application</title>
+  </head>
+  <body>
+    <div id="content">
+      {% if messages %}
+	<ul class="messages">
+	  {% for message in messages %}
+	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	  {% endfor %}
+	</ul>
+      {% endif %}
+
+      {% block content %}
+      {% endblock %}
+    </div>
+    <div id="links">
+      <ul class="linklist">
+	{% if user.is_authenticated %}
+        <li><a href="{% url logout %}">logout</a></li>
+	{% endif %}
+      </ul>
+    </div>
+  </body>
+</html>
